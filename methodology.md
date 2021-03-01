@@ -43,7 +43,12 @@ Since we know what password manager the participant is using when we show the co
 
 ### Hypotheses we might choose to test proposed by Stuart
 
-The participant's password manager is correlated with whether they choose to opt into the full study.
+*Participants who have removed all weak/re-used/compromised passwords are more likely to have chosen a randomly generated master password.*
+Test: Fisher's Exact Test 2x2 contingency table.
+Dimension 1: "How did you create and memorize the master password for your password manager?" ("I used a random password" or "I created a password using physical randomness" or "other" has text response indicating randomization via documented coding rule.)
+Dimension 2: Does uploaded dashboard image indicate 0 for weak, reused, and compromised passwords in the dashboard image.
+
+*The participant's password manager is correlated with whether they choose to opt into the full study.*
 
 Participants of the password managers with the most extra information in the dashboard, which are [FIXME WITH LIST], are less likely to participate. (presumably do to privacy reasons.  Fisher's Exact Test with 4x4 contingency table: participated/declined, password manager is in this group/outside this group.  Excludes data for those who did not respond to the request )
 
