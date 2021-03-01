@@ -20,7 +20,6 @@ Our main goal is to determine how are people using password managers. In particu
 To do this, we plan to run a survey through Prolific (https://www.prolific.co/). To those subjects that claim to use one of the password managers we are interested in, we will ask to upload a picture of the dashboard provided by their password manager, masking those areas of the image that may contain private information. Responses are anonymous, and we are not asking for any private information to our subjects. Our study was approved by the IRB at the University of California, Berkeley.
 
 
-
 ## Methodology
 
 We will observe and report:
@@ -38,6 +37,31 @@ In addition, we'll run the following tests:
 
 
 
+### Possible changes to methodology proposed by Stuart
+
+Since we know what password manager the participant is using when we show the consent form, should we show our example dashboard for that specific password manager instead of the generic one.
+
+### Hypotheses we might choose to test proposed by Stuart
+
+The participant's password manager is correlated with whether they choose to opt into the full study.
+
+Participants of the password managers with the most extra information in the dashboard, which are [FIXME WITH LIST], are less likely to participate. (presumably do to privacy reasons.  Fisher's Exact Test with 4x4 contingency table: participated/declined, password manager is in this group/outside this group.  Excludes data for those who did not respond to the request )
+
+The participant's password manager is correlated with them achieving zero compromised passwords, as measured by the number we will read from their submitted screenshot (using self reported data if errors in our screen shot methodology require us to disregard the screenshot).
+
+The participant's password manager is correlated with achieving zero weak/re-used passwords, as measured by the number we will read from their submitted screenshot (same caveat about using the self reported number in the event of data collection failures).
+
+The participant's password manager is correlated with having only weak/re-used/compromised passwords for accounts they don't think it's necessary to replace (answered 4.3.1 with "I do not need to replace any of the passwords reported as weak or re-used").
+
+The participant's password manager is correlated with whether they have knew about the dashboard (2.3, Chi2 test where table is number of yes/no answers categorized by password manager).  Used to determine whether some password managers are doing more to highlight the existence of the dashboard.  NNewer password managers (e.g. BitWarden) may have fewer users who started using the product prior to the dashboard creation, so might want to test this hypothesis only with users who started using a password manager in the past few years.
+
+The participant's password manager is correlated with whether they use a random master password (Q44: "I used a random password suggested by my password manager", "I created a password using a physical randomness, software, or other non-mental process. (please explain)", or if indicated by transparent researcher coding of "Other (please explain)".
+
+The time that has passed since the participant starting using the password manager (B.Duration) is correlated with whether they use a random master password.
+
+The participant's password manager is correlated with whether they have a printed recovery kit or written password (Q45, first three answers).
+
+*Many of the above hypotheses could be re-written for third-party password managers vs. chrome or third-party password managers vs. Safari/KeyChain.*
 
 ## Research team
 * Stuart Schechter, imposter@berkely.edu
