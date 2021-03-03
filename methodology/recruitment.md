@@ -31,9 +31,15 @@ Lastly, we offered the option to respond ``I'm not using a password manager".
 Our first qualification test was whether participants had responded with one of the listed third-party password managers or with Google Chrome, which also offers a dashboard from which we could collect password statistics.  
 In our pilots, we found that the password manager built into Google's Chrome browser was the most widely used.  To balance participation rates, we down-sampled participants using Chrome's password manager by randomly excluding 14 out of 15 from the first qualification test (using a random number generator).
 
-For those participants failed the first qualification test, including 14 of the 15 participants who used Chrome's password manager, we used the second of the two questions we had contracted for to ask:
+For those participants failed the first qualification test, including 14 of the 15 participants who used Chrome's password manager, we used the second of the two questions we had contracted for to ask why.
 
-> *??Nothing??*
+*I had previously proposed that everyone except the no-password-manager group be asked Q.Generating. From Slack:*
+
+> Stuart Schechter Feb 10th at 2:02 PM
+> Question 2:
+> If a third party password manager or they use chrome and win the participant lottery: ask Q.Duration
+> Else if using a browser password manager (including chrome if they don’t win the qualification lottery): Q.Generating
+> Else: they use no password manager -> done [now Q.WhyNoPWManager --Stuart on March 3]
 
 We then thanked the participants who didn't meet our first qualification criteria for successfully participating in then study, without revealing that the the questions were intended to determine qualification for our full study.
 
