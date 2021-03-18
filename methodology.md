@@ -30,43 +30,39 @@ We will observe and report:
 4. How do people report creating their master password, and whether they have taken precautions to not lose access to it (Q5 and related questions),
 5. The proportion of subjects who recall having received a notification to change their reused/weak passwords (Q6).
 
-In addition, we'll run the following tests:
+### Hypotheses we will run
 
-1. A logistic regression with subjects' age and gender as input, and Q3 as output. The purpose is to verify if age or gender have an effect on subjects' willingness to allow password managers to create random passwords for them. We expect that since older users trust less on technology, they are less likely to let a password manager create a random password for them.
-2. A linear regression with age, gender, and how long have the person used  as input, and the proportion of weak/reused passwords out of the total number of stored passwords as output. The purpose is to verify whether age, gender or experience with password managers have any effects on how many weak/reused passwords does the user maintain.
+1. *Older participants are less likely to let a password manager generate random passwords for them*. We will run a logistic regression with subjects' age and gender as input, and Q3 (above) as output. We expect that since older users trust less on technology, they are less likely to let a password manager create a random password for them. We are including gender to check whether it makes a difference in terms of this behavior.
 
+1. *Participants who have used password managers longer (B.Duration) are more likely to have less weak/reused passwords*. We will use a linear regression with age, gender, and how long has the person used password managers as input, and the proportion of weak/reused passwords out of the total number of stored passwords as output.
+
+1. *Participants who have used password managers longer (B.Duration) are more likely to use a random master password*. The time that has passed since the participant starting using the password manager (B.Duration) is correlated with whether they use a random master password.
+
+1. *Participants who have removed all weak/re-used/compromised passwords are more likely to have chosen a randomly generated master password.* We wil use a Fisher's Exact Test 2x2 contingency table with the following dimensions:
+    + Dimension 1: "How did you create and memorize the master password for your password manager?" ("I used a random password" or "I created a password using physical randomness" or "other" has text response indicating randomization via documented coding rule.)
+    + Dimension 2: Does uploaded dashboard image indicate 0 for weak, reused, and compromised passwords in the dashboard image.
+
+1. *The participant's password manager is correlated with whether they choose to opt into the full study.* Participants of the password managers with the most extra information in the dashboard, which are [FIXME WITH LIST], are less likely to participate, presumably due to privacy reasons. We will use a Fisher's Exact Test with 4x4 contingency table: participated/declined, password manager is in this group/outside this group. We will exclude data for those who did not respond to the request.
+
+1. *The participant's password manager is correlated with achieving zero weak/re-used passwords*, as measured by the number we will read from their submitted screenshot (same caveat about using the self reported number in the event of data collection failures).
+
+1. *The participant's password manager is correlated with them achieving zero compromised passwords*, as measured by the number we will read from their submitted screenshot (using self reported data if errors in our screen shot methodology require us to disregard the screenshot).
+
+1. *The participant's password manager is correlated with having only weak/re-used/compromised passwords for accounts they don't think it's necessary to replace* (answered 4.3.1 with "I do not need to replace any of the passwords reported as weak or re-used").
+
+1. *The participant's password manager is correlated with whether they have known about the dashboard* (2.3, Chi2 test where table is number of yes/no answers categorized by password manager). Used to determine whether some password managers are doing more to highlight the existence of the dashboard. Newer password managers (e.g. BitWarden) may have fewer users who started using the product prior to the dashboard creation, so might want to test this hypothesis only with users who started using a password manager in the past few years.
+
+1. *The participant's password manager is correlated with whether they use a random master password* (Q44: "I used a random password suggested by my password manager", "I created a password using a physical randomness, software, or other non-mental process. (please explain)", or if indicated by transparent researcher coding of "Other (please explain)".
+
+1. The participant's password manager is correlated with whether they have a printed recovery kit or written password (Q45, first three answers).
+
+*Many of the above hypotheses could be re-written for third-party password managers vs. chrome or third-party password managers vs. Safari/KeyChain.*
 
 
 ### Possible changes to methodology proposed by Stuart
 
 Since we know what password manager the participant is using when we show the consent form, should we show our example dashboard for that specific password manager instead of the generic one.
 
-### Hypotheses we might choose to test proposed by Stuart
-
-*Participants who have removed all weak/re-used/compromised passwords are more likely to have chosen a randomly generated master password.*
-Test: Fisher's Exact Test 2x2 contingency table.
-Dimension 1: "How did you create and memorize the master password for your password manager?" ("I used a random password" or "I created a password using physical randomness" or "other" has text response indicating randomization via documented coding rule.)
-Dimension 2: Does uploaded dashboard image indicate 0 for weak, reused, and compromised passwords in the dashboard image.
-
-*The participant's password manager is correlated with whether they choose to opt into the full study.*
-
-Participants of the password managers with the most extra information in the dashboard, which are [FIXME WITH LIST], are less likely to participate. (presumably do to privacy reasons.  Fisher's Exact Test with 4x4 contingency table: participated/declined, password manager is in this group/outside this group.  Excludes data for those who did not respond to the request )
-
-The participant's password manager is correlated with them achieving zero compromised passwords, as measured by the number we will read from their submitted screenshot (using self reported data if errors in our screen shot methodology require us to disregard the screenshot).
-
-The participant's password manager is correlated with achieving zero weak/re-used passwords, as measured by the number we will read from their submitted screenshot (same caveat about using the self reported number in the event of data collection failures).
-
-The participant's password manager is correlated with having only weak/re-used/compromised passwords for accounts they don't think it's necessary to replace (answered 4.3.1 with "I do not need to replace any of the passwords reported as weak or re-used").
-
-The participant's password manager is correlated with whether they have knew about the dashboard (2.3, Chi2 test where table is number of yes/no answers categorized by password manager).  Used to determine whether some password managers are doing more to highlight the existence of the dashboard.  NNewer password managers (e.g. BitWarden) may have fewer users who started using the product prior to the dashboard creation, so might want to test this hypothesis only with users who started using a password manager in the past few years.
-
-The participant's password manager is correlated with whether they use a random master password (Q44: "I used a random password suggested by my password manager", "I created a password using a physical randomness, software, or other non-mental process. (please explain)", or if indicated by transparent researcher coding of "Other (please explain)".
-
-The time that has passed since the participant starting using the password manager (B.Duration) is correlated with whether they use a random master password.
-
-The participant's password manager is correlated with whether they have a printed recovery kit or written password (Q45, first three answers).
-
-*Many of the above hypotheses could be re-written for third-party password managers vs. chrome or third-party password managers vs. Safari/KeyChain.*
 
 ## Research team
 * Stuart Schechter, imposter@berkely.edu
