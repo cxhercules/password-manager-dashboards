@@ -10,10 +10,6 @@ log.startLogFile = function(log.file) {
 	sink(file = log.file, append = TRUE, type = 'output', split = TRUE)
 }
 
-log.endLogFile <- function() {
-	sink()
-}
-
 log.spit = function(...) {
 	cat(..., "\n", sep = "")
 }

@@ -1,4 +1,4 @@
-#> File ./output.log created automatically on Fri Mar 26 13:40:12 2021 
+#> File ./output.log created automatically on Fri Mar 26 16:16:41 2021 
 
 Number of observations: 500
 	* I'm not using a password manager: 188 of 500 (37.6%)
@@ -8,9 +8,9 @@ Number of observations: 500
 	* The Password Manager Built into Apple's Safari Browser, MacOS, and iOS (Apple's Keychain): 21 of 500 (4.2%)
 	* LastPass: 16 of 500 (3.2%)
 	* Bitwarden (Free Edition): 15 of 500 (3%)
-	* another.browser: 14 of 500 (2.8%)
+	* Another Browser's Built-In Password Manager: 14 of 500 (2.8%)
 	* The Password Manager Built into Microsoft's Edge Browser: 10 of 500 (2%)
-	* another.pwdmanager: 9 of 500 (1.8%)
+	* Other Password Manager: 9 of 500 (1.8%)
 	* KeePassXC: 5 of 500 (1%)
 	* Dashlane: 3 of 500 (0.6%)
 	* Norton Password Manager: 2 of 500 (0.4%)
@@ -26,6 +26,7 @@ Participants who:
 	* Qualified, wanted to continue and didn't consent: 27 (5.4%)
 		- Wanted to be contacted later: 6 (1.2%)
 	* Qualified, wanted to continue and consented: 16 (3.2%)
+	* "Won the lottery" (users of Google Passwords Manager): 7 of 167 (4.2%, should be ~1/15 = 6.667%)
 
 ------------------------------------------------------------------------------------------------
 
@@ -67,3 +68,11 @@ Do you expect to use your password manager's security dashboard (the screen you 
 	* Definitely: 6 of 13 (46.2%)
 
 
+                              Q.HowLongUsingPasswordManager Passwords.Total Passwords.reused Passwords.weak Passwords.compromised HowLongTookSurvey       age
+Q.HowLongUsingPasswordManager                     1.0000000       0.4958592        0.5069374      0.5144236             0.4463506        -0.5565219 0.1700549
+Passwords.Total                                   0.4958592       1.0000000        0.7059550      0.6228192             0.7799986        -0.1086392 0.7254437
+Passwords.reused                                  0.5069374       0.7059550        1.0000000      0.8685433             0.8619523        -0.3162765 0.4225495
+Passwords.weak                                    0.5144236       0.6228192        0.8685433      1.0000000             0.5955738        -0.2660277 0.2701723
+Passwords.compromised                             0.4463506       0.7799986        0.8619523      0.5955738             1.0000000        -0.1860035 0.6596528
+HowLongTookSurvey                                -0.5565219      -0.1086392       -0.3162765     -0.2660277            -0.1860035         1.0000000 0.1890869
+age                                               0.1700549       0.7254437        0.4225495      0.2701723             0.6596528         0.1890869 1.0000000
