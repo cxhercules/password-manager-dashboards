@@ -35,9 +35,7 @@ We recruited for our study using Prolific, which provides features similar to Me
 We advertised a two-question study on Prolific under the title ``Do You Use a Password Manager and, if so, Which One?''.
 
 > This is a two-question multiple-choice survey. (One multiple choice question has an “other” that may require 2-3 words.)
-
 > It should take under two minutes, though we may offer additional information for you may voluntarily read after that you can choose to spend more time reading.
-
 > It asks whether you use a password manager and, if so, for how long.
 
 We used an option provided by prolific to filter out participants who were not using the service from a desktop computer, and therefore would be less likely to be able to access their password manager's desktop/web interface.
@@ -82,6 +80,8 @@ For those who passed the first qualification test, we asked:
 > This includes other password managers that you have used before.
 
 **Stuart asks: wait?  did we just add the bit about including password manager you have used before?  Don't we want to know that they've been using the current password manager for at least two months?**
+
+**Cristian answers: I removed the second part of the question in the last survey draft.**
 
 We categorized the participants who responded "Less than 2 months" as having failed the second qualification test. We thanked them for successfully participating in the two-question study, without revealing that the two questions were intended to determine qualification for our full study.
 
