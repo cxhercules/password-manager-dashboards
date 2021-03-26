@@ -1,10 +1,13 @@
 
-asPercentage <- function(num,total) {
-	return(paste0(100*num/total, "%", sep=""))
-}
+#> Initialization
+source('./config.r')
+source('./graphs.r')
+
+log.file <- './output.log'
+mydata <- read.csv('./data/Pilot-20210315.csv')
+ms.startLogFile()
 
 #> We load and clean the data
-mydata <- read.csv('./data/Pilot-20210315.csv')
 mydata$gender <- factor(mydata$X5.3)
 mydata$age <- mydata$X5.2
 
@@ -116,12 +119,13 @@ cat("\t* Qualified, wanted to continue and didn't consent: ", table3[1,1], " (",
 cat("\t\t- Wanted to be contacted later: ", sum(mydata$status.contactMeLater), " (", asPercentage(sum(mydata$status.contactMeLater), nrow(mydata)), ")\n", sep="")
 cat("\t* Qualified, wanted to continue and consented: ", table3[1,2], " (", asPercentage(table3[1,2], nrow(mydata)), ")\n", sep="")
 
+#> -------------------------------------------------------------------------------------------
 #> Now some analysis
 consented <- mydata[mydata$status.consented & !is.na(mydata$status.consented),]
+consented$Q.Generating <- factor(consented$Q.Generating)
+
 table4 <- sort(table(consented$Q.WhichPwdManager), decreasing = TRUE)
 print(table4)
-
-
 
 #> We create convenient names for the variables that are interesting
 # results$total <- results$How.many.passwords.in.total.does.your.Password.Manager.manage.for.you.
