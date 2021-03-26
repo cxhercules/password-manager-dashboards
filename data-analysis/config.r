@@ -5,48 +5,27 @@
 options(stringsAsFactors = FALSE)
 #options(scipen=999)
 
-runandlog = function(com) {
-	tmp = system(com, intern=TRUE)
-	if (length(tmp)>0)
-		for (i in tmp)
-			ms.addLog('[', com, '] ', i)
+log.startLogFile = function(log.file) {
+	cat(paste("#> File", log.file, "created automatically on", date(), "\n\n"), file = log.file)
+	sink(file = log.file, append = TRUE, type = 'output', split = TRUE)
 }
 
-ms.writeFileHeader = function(filename, format='tex') {
-	if (format=='tex') {
-		cat(paste("%> File", filename, "created automatically on", date(), "\n\n"), file = filename)
-	} else if (format=='html') {
-		cat(paste("<!-- File", filename, "created automatically on", date(), "-->\n"), file=filename)
-	} else if (format=='raw') {
-		cat(paste("#> File", filename, "created automatically on", date(), "\n"), file=filename)
-	} else {
-		warning("ms.writeFileHeader: format not supported, no output.")
-	}
+log.endLogFile <- function() {
+	sink()
 }
 
-ms.spit = function(..., file = NULL, head = "") {
-	if (is.null(file)) stop('File cannot be null.')
-	cat(head, ..., "\n", file = file, sep = "", append = TRUE)
+log.spit = function(...) {
+	cat(..., "\n", sep = "")
 }
 
-ms.startLogFile = function() {
-	ms.writeFileHeader(log.file, format='raw')
+log.addLine = function(...) {
+	log.spit(as.character(date()), ': ', ...)
 }
 
-ms.addLog = function(...) {
-	ms.spit(as.character(date()), ': ', ..., file = log.file, head='#> ')
-}
-
-ms.addVarVal = function(var, val, comment = NULL) {
-	if (is.null(comment)) {
-		ms.spit(as.character(var), ': ', as.character(val), file = log.file, head = '')
-	} else {
-		ms.spit(as.character(var), ': ', as.character(val), ' #> ', comment, file = log.file, head = '')
-	}
-}
-
-ms.getVarVal = function(var) {
-	return(logs[logs[,1]==var, 2])
+log.printTable <- function(thistable) {
+	for (i in 1:length(thistable))
+		log.spit("\t* ", names(thistable[i]), ": ", thistable[i], " of ", sum(thistable), " (", cf.asPercentage(thistable[i]/sum(thistable)), ")")
+	log.spit("\n")
 }
 
 #> ---------------------------------------------------------------------------

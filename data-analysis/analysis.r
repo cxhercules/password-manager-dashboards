@@ -2,10 +2,8 @@
 #> Initialization
 source('./config.r')
 source('./graphs.r')
-
-log.file <- './output.log'
+log.startLogFile('./output.log')
 mydata <- read.csv('./data/Pilot-20210315.csv')
-ms.startLogFile()
 
 #> We load and clean the data
 mydata$gender <- factor(mydata$X5.3)
@@ -35,12 +33,7 @@ mydata$Q.WhichPwdManager_17_TEXT <- NULL
 mydata$Q.WhichPwdManager_18_TEXT <- NULL
 
 #> We count how many people qualify
-cat("Number of observations: ", nrow(mydata), "\n")
-
 table1 <- sort(table(mydata$Q.WhichPwdManager), decreasing=TRUE)
-for (i in 1:length(table1))
-	cat("\t* ", names(table1[i]), ": ", table1[i], " of ", nrow(mydata), " (", asPercentage(table1[i], nrow(mydata)), ")", "\n", sep="")
-rm(i)
 
 mydata$status.qualified <- FALSE
 mydata$status.qualified[
@@ -94,8 +87,10 @@ table2 <- table(mydata$status.qualified, mydata$status.declined, useNA = "ifany"
 rownames(table2) <- c("Didn't qualify", "Qualified")
 colnames(table2) <- c("Wanted to continue", "Didn't want to continue", "Didn't answer")
 if (table2[1,1]!=0 | table2[1,2]!=0 | table2[2,3]!=0) {
-	print(table2)
-	stop("Some answers are inconsistent! Please check the table!")
+	log.printTable(table2)
+	log.spit("\nERROR: Some answers are inconsistent! Please check the table!")
+	sink()
+	stop()
 }
 
 table3 <- table(mydata$status.declined, mydata$status.consented, useNA = "ifany")
@@ -107,28 +102,53 @@ table3[2,1] <- 0
 #!!!!!!!!!!!!!!!!!!
 
 if (table3[1,3]!=0 | table3[2,1]!=0 | table3[2,2]!=0 | table3[3,1]!=0 | table3[3,2]!=0) {
-	print(table3)
-	stop("Some answers are inconsistent! Please check the table!")
+	log.printTable(table3)
+	log.spit("\nERROR: Some answers are inconsistent! Please check the table!")
+	sink()
+	stop()
 }
 
 #> We display the numbers
-cat("\nParticipants who:\n")
-cat("\t* Didn't qualify: ", table3[3,3], " (", asPercentage(table3[3,3], nrow(mydata)), ")\n", sep="")
-cat("\t* Qualified and didn't want to continue: ", table3[2,3], " (", asPercentage(table3[2,3], nrow(mydata)),")\n", sep="")
-cat("\t* Qualified, wanted to continue and didn't consent: ", table3[1,1], " (", asPercentage(table3[1,1], nrow(mydata)), ")\n", sep="")
-cat("\t\t- Wanted to be contacted later: ", sum(mydata$status.contactMeLater), " (", asPercentage(sum(mydata$status.contactMeLater), nrow(mydata)), ")\n", sep="")
-cat("\t* Qualified, wanted to continue and consented: ", table3[1,2], " (", asPercentage(table3[1,2], nrow(mydata)), ")\n", sep="")
+log.spit("Number of observations: ", nrow(mydata))
+log.printTable(table1)
+log.spit("Participants who:")
+log.spit("\t* Didn't qualify: ", table3[3,3], " (", cf.asPercentage(table3[3,3]/nrow(mydata)), ")")
+log.spit("\t* Qualified and didn't want to continue: ", table3[2,3], " (", cf.asPercentage(table3[2,3]/nrow(mydata)), ")")
+log.spit("\t* Qualified, wanted to continue and didn't consent: ", table3[1,1], " (", cf.asPercentage(table3[1,1]/nrow(mydata)), ")")
+log.spit("\t\t- Wanted to be contacted later: ", sum(mydata$status.contactMeLater), " (", cf.asPercentage(sum(mydata$status.contactMeLater)/nrow(mydata)), ")")
+log.spit("\t* Qualified, wanted to continue and consented: ", table3[1,2], " (", cf.asPercentage(table3[1,2]/nrow(mydata)), ")")
+
+log.spit("\n------------------------------------------------------------------------------------------------\n")
 
 #> -------------------------------------------------------------------------------------------
 #> Now some analysis
 consented <- mydata[mydata$status.consented & !is.na(mydata$status.consented),]
 consented$Q.Generating <- factor(consented$Q.Generating)
+consented$Q.Duration <- factor(consented$Q.Duration, levels = c("Between 2 months to 1 year", "Between 1 to 2 years", "Between 2 to 3 years", "Between 3 to 4 years", "More than 4 years"))
+consented$Q.Dashboard.Knew <- factor(consented$X2.3, levels = c("Yes", "No"))
+consented$Q.Dashboard.Use <- factor(consented$X3.1.1, levels = c("Never", "Very Rarely", "Rarely", "Frequently", "Very Frequently"))
+consented$Q.Dashboard.Expect <- factor(consented$X3.1.2, levels = c("Definitely not", "Probably not", "Maybe", "Probably", "Definitely"))
 
-table4 <- sort(table(consented$Q.WhichPwdManager), decreasing = TRUE)
-print(table4)
+log.spit("Which password manager are you using for your personal accounts? (if you use more than one, please report the one that manages the most accounts.)")
+log.printTable(sort(table(consented$Q.WhichPwdManager), decreasing = TRUE))
+
+log.spit("How long have you been using a password manager?")
+log.printTable(table(consented$Q.Duration))
+
+log.spit("Did you know about your password manager's security dashboard (the screen you captured and uploaded) before taking this survey?")
+log.printTable(table(consented$Q.Dashboard.Knew))
+
+log.spit("How often do you use the security dashboard?")
+log.printTable(table(consented$Q.Dashboard.Use))
+
+log.spit("Do you expect to use your password manager's security dashboard (the screen you captured and uploaded) in the future?")
+log.printTable(table(consented$Q.Dashboard.Expect))
 
 #> We create convenient names for the variables that are interesting
 # results$total <- results$How.many.passwords.in.total.does.your.Password.Manager.manage.for.you.
 # results$weak <- results$How.many.weak.passwords.in.total.does.your.Password.Manager.report.
 # results$duplicate <- results$How.many.duplicate.reused.repeated.non.unique.passwords.in.total.does.your.Password.Manager.report.
 # results$method <- results$When.you.are.creating.an.account.on.a.website.or.changing.your.password..are.you.more.likely.to...Selected.Choice
+
+#> Wrap it up
+log.endLogFile()
