@@ -137,18 +137,11 @@ consented$Q.HowLongUsingPasswordManager <- as.numeric(consented$Q.Duration)
 consented$Q.KnewDash <- factor(consented$Q.KnewDash, levels = c("Yes", "No"))
 consented$Q.KnewDash.HowOften <- factor(consented$Q.KnewDash.HowOften, levels = c("Never", "Very Rarely", "Rarely", "Frequently", "Very Frequently"))
 consented$Q.KnewDash.WilUse <- factor(consented$Q.KnewDash.WilUse, levels = c("Definitely not", "Probably not", "Maybe", "Probably", "Definitely"))
-consented$Q.Duration <- factor(paste(consented$Q.Duration),
-							   labels = 1:5,
-							   levels = c("Between 2 months to 1 year", "Between 1 to 2 years", "Between 2 to 3 years", "Between 3 to 4 years", "More than 4 years")
-)
-
 
 
 #> We display the numbers
-log.spit("Number of observations: ", nrow(mydata))
-log.printTable(table1)
-log.spit("")
-log.spit("Participants who:")
+log.spit("## Summary\n")
+log.spit("* Participants who:")
 log.spit("\t* Completed the study: ", nrow(mydata), " (100%)")
 log.spit("\t* Didn't qualify: ", table3[3,3], " (", cf.asPercentage(table3[3,3]/nrow(mydata)), ")")
 log.spit("\t* Qualified and didn't want to continue: ", table3[2,3], " (", cf.asPercentage(table3[2,3]/nrow(mydata)), ")")
@@ -157,23 +150,33 @@ log.spit("\t* Qualified, wanted to continue but didn't consent: ", table3[1,1], 
 log.printTable(table4, head = "\t\t - ")
 log.spit("\t* Qualified, wanted to continue and consented: ", table3[1,2], " (", cf.asPercentage(table3[1,2]/nrow(mydata)), ")")
 
-log.spit("\nParticipants who \"Won the lottery\" (users of Google Passwords Manager): ",
+log.spit("* Participants who \"Won the lottery\" (users of Google Passwords Manager): ",
 		 nrow(googlepm[googlepm$RandomNumber<1000,]), " of ",  nrow(googlepm),
 		 " (", cf.asPercentage(nrow(googlepm[googlepm$RandomNumber<1000,])/nrow(googlepm)), ", should be ~1/15 = 6.667%)"
 )
-log.spit("\n------------------------------------------------------------------------------------------------\n")
 
-#> -------------------------------------------------------------------------------------------
-#> Now some analysis
+log.spit("\n\n## Data before filtering out\n")
+log.spit("Number of observations: ", nrow(mydata))
 
+log.spit("Which password manager are you using for your personal accounts? (if you use more than one, please report the one that manages the most accounts.)")
+log.printTable(sort(table(mydata$Q.WhichPwdManager), decreasing = TRUE))
+
+log.spit("\nHow long have you been using a password manager?")
+log.printTable(table(mydata$Q.Duration))
+
+log.spit("\nDo you want to earn a USD $0.25 bonus spending one more minute learning about a USD $5.00 follow-up study?")
+log.printTable(sort(table(mydata$Q.LearnMore)[2:3], decreasing = TRUE))
+
+log.spit("\nCan you participate in this study and do you consent to do so? (We will pay you the USD $0.25 already promised regardless of your answer.)")
+tmp <- sort(table(mydata$Q.Consent), decreasing = TRUE)
+log.printTable(tmp[2:length(tmp)])
+
+log.spit("\n\n## Information after filtering out\n")
 log.spit("Which password manager are you using for your personal accounts? (if you use more than one, please report the one that manages the most accounts.)")
 log.printTable(sort(table(consented$Q.WhichPwdManager), decreasing = TRUE))
 
 log.spit("\nHow long have you been using a password manager?")
 log.printTable(table(consented$Q.Duration))
-
-log.spit("\nDo you want to earn a USD $0.25 bonus spending one more minute learning about a USD $5.00 follow-up study?")
-log.printTable(sort(table(mydata$Q.LearnMore)[2:3], decreasing = TRUE))
 
 #log.spit("\nCan you participate in this study and do you consent to do so? (We will pay you the USD $0.25 already promised regardless of your answer.)")
 #log.printTable(table4)
@@ -192,14 +195,14 @@ log.printTable(table(consented$Q.KnewDash.WilUse))
 # print(res)
 # corrplot(res, type='upper')
 
-#> We analyze answers of those who didn't use a password manager
-log.spit("\n------------------------------------------------------------------------------------------------\n")
-
 log.spit("\nWhen you are creating an account on a website or changing your password, are you more likely to:")
 log.printTable(sort(table(consented$Q.Generating), decreasing = TRUE))
 
 log.spit("\nWhy are you more likely to create a password for yourself than let your password manager create one for you?")
 log.spit(paste("\t* \"", consented$Q.Generating.In.Why[consented$Q.Generating.In.Why!=''], "\"\n", collapse = "", sep = ""))
+
+log.spit("\n")
+
 
 #> Wrap it up
 rm(googlepm)
