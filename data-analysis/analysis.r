@@ -172,6 +172,12 @@ log.printTable(sort(table(consented$Q.WhichPwdManager), decreasing = TRUE))
 log.spit("\nHow long have you been using a password manager?")
 log.printTable(table(consented$Q.Duration))
 
+log.spit("\nDo you want to earn a USD $0.25 bonus spending one more minute learning about a USD $5.00 follow-up study?")
+log.printTable(sort(table(mydata$Q.LearnMore)[2:3], decreasing = TRUE))
+
+#log.spit("\nCan you participate in this study and do you consent to do so? (We will pay you the USD $0.25 already promised regardless of your answer.)")
+#log.printTable(table4)
+
 log.spit("\nDid you know about your password manager's security dashboard (the screen you captured and uploaded) before taking this survey?")
 log.printTable(table(consented$Q.KnewDash))
 
@@ -182,14 +188,19 @@ log.spit("\nDo you expect to use your password manager's security dashboard (the
 log.printTable(table(consented$Q.KnewDash.WilUse))
 
 #> Correlation between numerical answers
-res <- cor(consented[,c('Q.HowLongUsingPasswordManager','Passwords.Total','Passwords.reused','Passwords.weak','Passwords.compromised','HowLongTookSurvey','age')])
-print(res)
-corrplot(res, type='upper')
+# res <- cor(consented[,c('Q.HowLongUsingPasswordManager','Passwords.Total','Passwords.reused','Passwords.weak','Passwords.compromised','HowLongTookSurvey','age')])
+# print(res)
+# corrplot(res, type='upper')
 
 #> We analyze answers of those who didn't use a password manager
 log.spit("\n------------------------------------------------------------------------------------------------\n")
 
+log.spit("\nWhen you are creating an account on a website or changing your password, are you more likely to:")
+log.printTable(sort(table(consented$Q.Generating), decreasing = TRUE))
+
+log.spit("\nWhy are you more likely to create a password for yourself than let your password manager create one for you?")
+log.spit(paste("\t* \"", consented$Q.Generating.In.Why[consented$Q.Generating.In.Why!=''], "\"\n", collapse = "", sep = ""))
 
 #> Wrap it up
-rm(googlepm, res)
+rm(googlepm)
 if (createlog) sink()
