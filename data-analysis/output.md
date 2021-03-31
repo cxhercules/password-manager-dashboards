@@ -1,4 +1,4 @@
-#> File ./output.log created automatically on Wed Mar 31 19:16:35 2021 
+#> File ./output.md created automatically on Wed Mar 31 20:56:32 2021 
 
 ## Summary
 
@@ -66,6 +66,7 @@ Can you participate in this study and do you consent to do so? (We will pay you 
 	* I do not want to participate for other reasons. (Please tell us why.): 9 of 320 (2.8%)
 	* I am unable to participate for other reasons. (Please tell us why.): 7 of 320 (2.2%)
 	* I do not want to participate because the study doesn't pay as much as I'd like. (Enter the price you would participate for.): 7 of 320 (2.2%)
+
 
 ## Information after filtering out
 
@@ -170,4 +171,6 @@ Why are you more likely to create a password for yourself than let your password
 	* "Because if at any time the password manager fails, I will have some idea of ​​my passwords"
 	* "I create passwords that I can remember"
 	* "I can more easily memorize a password in case I have to enter a site from another computer."
+
+
 

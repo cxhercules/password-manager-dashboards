@@ -5,7 +5,7 @@ createlog <- TRUE
 source('./config.r')
 source('./graphs.r')
 
-if (createlog) log.startLogFile('./output.log')
+if (createlog) log.startLogFile('./output.md')
 mydata <- read.csv('./data/Pilot-20210331.csv')
 
 #> We load and clean the data
