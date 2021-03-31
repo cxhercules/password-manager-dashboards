@@ -1,78 +1,12 @@
-#> File ./output.log created automatically on Fri Mar 26 16:16:41 2021 
+#> File ./output.log created automatically on Tue Mar 30 23:45:12 2021 
 
-Number of observations: 500
-	* I'm not using a password manager: 188 of 500 (37.6%)
-	* The Password Manager Built into Google's Chrome Browser (Google Password Manager): 167 of 500 (33.4%)
-	* 1Password: 23 of 500 (4.6%)
-	* The Password Manager Built into Mozilla's Firefox Browser: 23 of 500 (4.6%)
-	* The Password Manager Built into Apple's Safari Browser, MacOS, and iOS (Apple's Keychain): 21 of 500 (4.2%)
-	* LastPass: 16 of 500 (3.2%)
-	* Bitwarden (Free Edition): 15 of 500 (3%)
-	* Another Browser's Built-In Password Manager: 14 of 500 (2.8%)
-	* The Password Manager Built into Microsoft's Edge Browser: 10 of 500 (2%)
-	* Other Password Manager: 9 of 500 (1.8%)
-	* KeePassXC: 5 of 500 (1%)
-	* Dashlane: 3 of 500 (0.6%)
-	* Norton Password Manager: 2 of 500 (0.4%)
-	* Bitwarden (Premium Edition): 1 of 500 (0.2%)
-	* Keeper Password Manager: 1 of 500 (0.2%)
-	* Password Boss: 1 of 500 (0.2%)
-	* StickyPassword: 1 of 500 (0.2%)
+	* : 9 of 2490 (0.4%)
+	* : 310 of 2490 (12.4%)
+	* : 0 of 2490 (0%)
+	* : 4 of 2490 (0.2%)
+	* : 2167 of 2490 (87%)
+	* : 0 of 2490 (0%)
 
 
-Participants who:
-	* Didn't qualify: 455 (91%)
-	* Qualified and didn't want to continue: 2 (0.4%)
-	* Qualified, wanted to continue and didn't consent: 27 (5.4%)
-		- Wanted to be contacted later: 6 (1.2%)
-	* Qualified, wanted to continue and consented: 16 (3.2%)
-	* "Won the lottery" (users of Google Passwords Manager): 7 of 167 (4.2%, should be ~1/15 = 6.667%)
 
-------------------------------------------------------------------------------------------------
-
-Which password manager are you using for your personal accounts? (if you use more than one, please report the one that manages the most accounts.)
-	* LastPass: 7 of 16 (43.8%)
-	* 1Password: 3 of 16 (18.8%)
-	* KeePassXC: 2 of 16 (12.5%)
-	* The Password Manager Built into Google's Chrome Browser (Google Password Manager): 2 of 16 (12.5%)
-	* Bitwarden (Premium Edition): 1 of 16 (6.2%)
-	* Dashlane: 1 of 16 (6.2%)
-
-
-How long have you been using a password manager?
-	* Between 2 months to 1 year: 2 of 16 (12.5%)
-	* Between 1 to 2 years: 4 of 16 (25%)
-	* Between 2 to 3 years: 3 of 16 (18.8%)
-	* Between 3 to 4 years: 2 of 16 (12.5%)
-	* More than 4 years: 5 of 16 (31.2%)
-
-
-Did you know about your password manager's security dashboard (the screen you captured and uploaded) before taking this survey?
-	* Yes: 3 of 16 (18.8%)
-	* No: 13 of 16 (81.2%)
-
-
-How often do you use the security dashboard?
-	* Never: 0 of 3 (0%)
-	* Very Rarely: 1 of 3 (33.3%)
-	* Rarely: 0 of 3 (0%)
-	* Frequently: 2 of 3 (66.7%)
-	* Very Frequently: 0 of 3 (0%)
-
-
-Do you expect to use your password manager's security dashboard (the screen you captured and uploaded) in the future?
-	* Definitely not: 0 of 13 (0%)
-	* Probably not: 1 of 13 (7.7%)
-	* Maybe: 2 of 13 (15.4%)
-	* Probably: 4 of 13 (30.8%)
-	* Definitely: 6 of 13 (46.2%)
-
-
-                              Q.HowLongUsingPasswordManager Passwords.Total Passwords.reused Passwords.weak Passwords.compromised HowLongTookSurvey       age
-Q.HowLongUsingPasswordManager                     1.0000000       0.4958592        0.5069374      0.5144236             0.4463506        -0.5565219 0.1700549
-Passwords.Total                                   0.4958592       1.0000000        0.7059550      0.6228192             0.7799986        -0.1086392 0.7254437
-Passwords.reused                                  0.5069374       0.7059550        1.0000000      0.8685433             0.8619523        -0.3162765 0.4225495
-Passwords.weak                                    0.5144236       0.6228192        0.8685433      1.0000000             0.5955738        -0.2660277 0.2701723
-Passwords.compromised                             0.4463506       0.7799986        0.8619523      0.5955738             1.0000000        -0.1860035 0.6596528
-HowLongTookSurvey                                -0.5565219      -0.1086392       -0.3162765     -0.2660277            -0.1860035         1.0000000 0.1890869
-age                                               0.1700549       0.7254437        0.4225495      0.2701723             0.6596528         0.1890869 1.0000000
+ERROR: Some answers are inconsistent! Please check the table!

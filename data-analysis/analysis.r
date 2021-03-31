@@ -1,26 +1,26 @@
 
 #> Initialization
 library(corrplot)
-createlog <- TRUE
+createlog <- FALSE
 source('./config.r')
 source('./graphs.r')
 
 if (createlog) log.startLogFile('./output.log')
-mydata <- read.csv('./data/Pilot-20210315.csv')
+mydata <- read.csv('./data/Pilot-20210330-b.csv')
 
 #> We load and clean the data
-mydata$gender <- factor(mydata$X5.3)
-mydata$age <- mydata$X5.2
+mydata$gender <- factor(mydata$Q.gender)
+mydata$age <- mydata$Q.age
 mydata$Q.Duration <- factor(mydata$Q.Duration,
 							levels = c("Less than 2 months","Between 2 months to 1 year", "Between 1 to 2 years", "Between 2 to 3 years", "Between 3 to 4 years", "More than 4 years"))
-mydata$Q.LearnMore <- factor(mydata$Q.LearnMore)
-mydata$Passwords.Total <- mydata$X4.1
-mydata$Passwords.reused <- mydata$X4.2
-mydata$Passwords.weak <- mydata$X4.3
-mydata$Passwords.compromised <- mydata$X4.4
+mydata$Q.LearnMore <- factor(mydata$Q.learningMore)
+mydata$Passwords.Total <- mydata$Q.Pwds.Total
+mydata$Passwords.reused <- mydata$Q.Pwds.R
+mydata$Passwords.weak <- mydata$Q.Pwds.W
+mydata$Passwords.compromised <- mydata$Q.Pwds.C
 
-for (i in c('Status','Progress','Finished','DistributionChannel','UserLanguage','ResponseId', 'SESSION_ID','StudyID','ResponseID','Referer','SurveyID','X5.3','X5.2','Q_RecaptchaScore',
-			'X4.1','X4.2','X4.3','X4.4'))
+for (i in c('Status','Progress','Finished','DistributionChannel','UserLanguage','ResponseId', 'SESSION_ID','StudyID','ResponseID','Referer','SurveyID',
+			'Q.gender','Q.age','Q.learningMore','Q.Pwds.Total','Q.Pwds.R','Q.Pwds.W','Q.Pwds.C'))
 	mydata[,c(i)] <- NULL
 rm(i)
 
@@ -32,7 +32,7 @@ mydata$Q.WhichPwdManager.other[mydata$Q.WhichPwdManager=='Another Browser\'s Bui
 mydata$Q.WhichPwdManager[mydata$Q.WhichPwdManager=='Another Browser\'s Built-In Password Manager (please type the name below)'] <- "Another Browser\'s Built-In Password Manager"
 
 mydata$Q.WhichPwdManager.other[mydata$Q.WhichPwdManager=='Other Password Manager (please type the name below)'] <-
-	paste(mydata$Q.WhichPwdManager_18_TEXT[mydata$Q.WhichPwdManager_18_TEXT!=''])
+	paste(mydata$Q.WhichPwdManager_18_TEXT[mydata$Q.WhichPwdManager=='Other Password Manager (please type the name below)'])
 mydata$Q.WhichPwdManager[mydata$Q.WhichPwdManager=='Other Password Manager (please type the name below)'] <- "Other Password Manager"
 mydata$Q.WhichPwdManager.other <- factor(mydata$Q.WhichPwdManager.other)
 
@@ -68,23 +68,23 @@ mydata$status.declined[mydata$Q.LearnMore == "Yes, I'll spend one more minute fo
 
 mydata$status.consented <- NA
 mydata$status.consented[
-	mydata$QConsent == "I am not comfortable uploading the screenshot of aggregate statistics or answering questions about my password manager." |
-	mydata$QConsent == "I am qualified and would like to participate, but I am not at a desktop computer right now. Please contact me later." |
-	mydata$QConsent == "I am qualified and would like to participate, but I don't have time right now. Please contact me later." |
-	mydata$QConsent == "I decline to participate and decline to provide a reason." |
-	mydata$QConsent == "I do not qualify because I cannot use my password manager's desktop or web interface." |
-	mydata$QConsent == "I do not qualify because I do not have a desktop computer on which to perform the study tasks." |
-	mydata$QConsent == "I do not want to participate because the study doesn't pay as much as I'd like. (Enter the price you would participate for.)" |
-	mydata$QConsent == "I do not want to participate for other reasons. (Please tell us why.)"
+	mydata$Q.Consent == "I am not comfortable uploading the screenshot of aggregate statistics or answering questions about my password manager." |
+	mydata$Q.Consent == "I am qualified and would like to participate, but I am not at a desktop computer right now. Please contact me later." |
+	mydata$Q.Consent == "I am qualified and would like to participate, but I don't have time right now. Please contact me later." |
+	mydata$Q.Consent == "I decline to participate and decline to provide a reason." |
+	mydata$Q.Consent == "I do not qualify because I cannot use my password manager's desktop or web interface." |
+	mydata$Q.Consent == "I do not qualify because I do not have a desktop computer on which to perform the study tasks." |
+	mydata$Q.Consent == "I do not want to participate because the study doesn't pay as much as I'd like. (Enter the price you would participate for.)" |
+	mydata$Q.Consent == "I do not want to participate for other reasons. (Please tell us why.)"
 ] <- FALSE
 mydata$status.consented[
-	mydata$QConsent == "Yes, I am qualified to participate in the full $5.00 study and want to start immediately."
+	mydata$Q.Consent == "Yes, I am qualified to participate in the full $5.00 study and want to start immediately."
 ] <- TRUE
 
 mydata$status.contactMeLater <- FALSE
 mydata$status.contactMeLater[
-	mydata$QConsent == "I am qualified and would like to participate, but I am not at a desktop computer right now. Please contact me later." |
-	mydata$QConsent == "I am qualified and would like to participate, but I don't have time right now. Please contact me later."
+	mydata$Q.Consent == "I am qualified and would like to participate, but I am not at a desktop computer right now. Please contact me later." |
+	mydata$Q.Consent == "I am qualified and would like to participate, but I don't have time right now. Please contact me later."
 ] <- TRUE
 
 
@@ -103,10 +103,6 @@ if (table2[1,1]!=0 | table2[1,2]!=0 | table2[2,3]!=0) {
 table3 <- table(mydata$status.declined, mydata$status.consented, useNA = "ifany")
 rownames(table3) <- c("Qualified and wanted to continue", "Qualified and didn't want to continue", "Didn't qualify")
 colnames(table3) <- c("Didn't consent", "Consented","Didn't answer")
-#!!!!!!!!!!!!!!!!!!
-table3[2,3] <- 2
-table3[2,1] <- 0
-#!!!!!!!!!!!!!!!!!!
 
 if (table3[1,3]!=0 | table3[2,1]!=0 | table3[2,2]!=0 | table3[3,1]!=0 | table3[3,2]!=0) {
 	log.printTable(table3)
@@ -136,15 +132,15 @@ log.spit("\n--------------------------------------------------------------------
 #> -------------------------------------------------------------------------------------------
 #> Now some analysis
 consented <- mydata[mydata$status.consented & !is.na(mydata$status.consented),]
-consented$Q.Generating <- factor(consented$Q.Generating)
+consented$Q.Generating <- factor(consented$Q.Generating.In)
 consented$Q.Duration <- factor(paste(consented$Q.Duration),
  							   levels = c("Between 2 months to 1 year", "Between 1 to 2 years", "Between 2 to 3 years", "Between 3 to 4 years", "More than 4 years")
 )
 consented$HowLongTookSurvey <- consented$Duration..in.seconds.
 consented$Q.HowLongUsingPasswordManager <- as.numeric(consented$Q.Duration)
-consented$Q.Dashboard.Knew <- factor(consented$X2.3, levels = c("Yes", "No"))
-consented$Q.Dashboard.Use <- factor(consented$X3.1.1, levels = c("Never", "Very Rarely", "Rarely", "Frequently", "Very Frequently"))
-consented$Q.Dashboard.Expect <- factor(consented$X3.1.2, levels = c("Definitely not", "Probably not", "Maybe", "Probably", "Definitely"))
+consented$Q.KnewDash <- factor(consented$Q.KnewDash, levels = c("Yes", "No"))
+consented$Q.KnewDash.HowOften <- factor(consented$Q.KnewDash.HowOften, levels = c("Never", "Very Rarely", "Rarely", "Frequently", "Very Frequently"))
+consented$Q.KnewDash.WilUse <- factor(consented$Q.KnewDash.WilUse, levels = c("Definitely not", "Probably not", "Maybe", "Probably", "Definitely"))
 
 log.spit("Which password manager are you using for your personal accounts? (if you use more than one, please report the one that manages the most accounts.)")
 log.printTable(sort(table(consented$Q.WhichPwdManager), decreasing = TRUE))
@@ -153,13 +149,13 @@ log.spit("How long have you been using a password manager?")
 log.printTable(table(consented$Q.Duration))
 
 log.spit("Did you know about your password manager's security dashboard (the screen you captured and uploaded) before taking this survey?")
-log.printTable(table(consented$Q.Dashboard.Knew))
+log.printTable(table(consented$Q.KnewDash))
 
 log.spit("How often do you use the security dashboard?")
-log.printTable(table(consented$Q.Dashboard.Use))
+log.printTable(table(consented$Q.KnewDash.HowOften))
 
 log.spit("Do you expect to use your password manager's security dashboard (the screen you captured and uploaded) in the future?")
-log.printTable(table(consented$Q.Dashboard.Expect))
+log.printTable(table(consented$Q.KnewDash.WilUse))
 
 consented$Q.Duration <- factor(paste(consented$Q.Duration),
 							   labels = 1:5,
@@ -168,7 +164,7 @@ consented$Q.Duration <- factor(paste(consented$Q.Duration),
 
 res <- cor(consented[,c('Q.HowLongUsingPasswordManager','Passwords.Total','Passwords.reused','Passwords.weak','Passwords.compromised','HowLongTookSurvey','age')])
 print(res)
-#corrplot(res, type='upper')
+corrplot(res, type='upper')
 
 #> Wrap it up
 if (createlog) sink()
