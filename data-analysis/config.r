@@ -18,10 +18,9 @@ log.addLine = function(...) {
 	log.spit(as.character(date()), ': ', ...)
 }
 
-log.printTable <- function(thistable) {
+log.printTable <- function(thistable, head = "\t* ") {
 	for (i in 1:length(thistable))
-		log.spit("\t* ", names(thistable[i]), ": ", thistable[i], " of ", sum(thistable), " (", cf.asPercentage(thistable[i]/sum(thistable)), ")")
-	log.spit("\n")
+		log.spit(head, names(thistable[i]), ": ", thistable[i], " of ", sum(thistable), " (", cf.asPercentage(thistable[i]/sum(thistable)), ")")
 }
 
 #> ---------------------------------------------------------------------------
