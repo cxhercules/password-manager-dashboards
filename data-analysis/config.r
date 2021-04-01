@@ -6,7 +6,7 @@ options(stringsAsFactors = FALSE)
 #options(scipen=999)
 
 log.startLogFile = function(log.file) {
-	cat(paste("#> File", log.file, "created automatically on", date(), "\n\n"), file = log.file)
+	cat(paste("File", log.file, "created automatically on", date(), "\n\n"), file = log.file)
 	sink(file = log.file, append = TRUE, type = 'output', split = TRUE)
 }
 
@@ -18,7 +18,7 @@ log.addLine = function(...) {
 	log.spit(as.character(date()), ': ', ...)
 }
 
-log.printTable <- function(thistable, head = "\t* ") {
+log.printTable <- function(thistable, head = "  * ") {
 	for (i in 1:length(thistable))
 		log.spit(head, names(thistable[i]), ": ", thistable[i], " of ", sum(thistable), " (", cf.asPercentage(thistable[i]/sum(thistable)), ")")
 }
