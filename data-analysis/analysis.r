@@ -145,6 +145,25 @@ table_4b <- cbind(table_4b, rowSums(table_4b))
 table_4b <- rbind(table_4b, colSums(table_4b))
 colnames(table_4b) <- c("Did not consent", "Consented", "Subtotal")
 
+last_filter_out <- list(
+	'5fa6b23a53b8a531f3fb0eec',
+	'6045f3b682a9db75811a3bb1',
+	'6036e0cfe413e512bdefeada',
+	'5ffbbcd80d7ede0e60ed5b7d',
+	'5cfaab352e080000016ec742',
+	'5ef930974bc6e0000848aff7',
+	'5f44fbb89d025504e21fe930'
+)
+for (i in last_filter_out)
+	mydata <- mydata[ mydata$PROLIFIC_PID != i, ]
+rm(i)
+
+table_4c <- table(mydata$status.hadgoodPM, mydata$status.consented)[1:3,]
+table_4c <- cbind(table_4c, rowSums(table_4c))
+table_4c <- rbind(table_4c, colSums(table_4c))
+colnames(table_4c) <- c("Did not consent", "Consented", "Subtotal")
+
+
 mydata$status.contactMeLater <- FALSE
 mydata$status.contactMeLater[
 	mydata$Q.Consent == "I am qualified and would like to participate, but I am not at a desktop computer right now. Please contact me later." |
@@ -239,6 +258,13 @@ print(table_4)
 log.spit("------------------------------------------------------")
 log.spit("\n\nThis is the same as above, but having filtered out those 9 people who had less than 5 passwords total stored in their PM:")
 print(table_4b)
+
+log.spit("------------------------------------------------------")
+log.spit("\n\nFinally, this is the same as above, but after filtering out those 7 people reported by David, who couldn't be verified manually by their screenshot")
+print(table_4c)
+log.spit("------------------------------------------------------")
+log.spit("------------------------------------------------------")
+log.spit("------------------------------------------------------")
 
 
 # log.spit("\n\n## Data before filtering out\n")
