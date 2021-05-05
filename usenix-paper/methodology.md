@@ -1,64 +1,39 @@
-# Study description
-## Research team
-* Stuart Schechter, imposter@berkely.edu
-* David Ng, davidng@berkeley.edu
-* Jacky Ho, pt.ho@berkeley.edu
-* Christian Hercules, cxhercules@berkeley.edu
-* Cristian Bravo-Lillo, cbravolillo@berkeley.edu
-
-## Context
-One major problem today is that Internet users are able to remember fewer passwords than the amount of authenticated websites or apps they visit. One possible solution is provided by password managers - most (if not all) major brands offer the possibility of generating unique, random passwords for every authenticated website that a user visits. Password managers offer also other benefits, such as entering passwords automatically in authenticated websites, and doing it based only on websites' URLs, which provides some protection against phishing.
-
-However, since vendors have incentives to not look at users' data, we don't know whether people are using password managers to either generate random passwords or to store their manually created passwords instead. One way to know this is by looking at how many passwords are classified as "weak" or "repeated" by password managers.
-
-## Purpose
-Our main goal is to determine how are people using password managers. In particular, for a set of 10 third-party password managers (1Password, Bitwarden Premium Edition, Dashlane, KeePassXC, Keeper Password Manager, Lastpass, Norton Password Manager, Password Boss, Roboform and StickyPassword), we are interested in knowing:
-
-1. How many passwords in total does each person store in their password manager (Q1),
-2. How many passwords are marked as reused, weak or compromised by password managers (Q2),
-3. Whether people are more likely to create a password themselves and let the password manager store it, or whether they would let their password manager create a random password instead when creating an account on a website (Q3),
-4. Whether people feel it's okay to have either reused, weak or compromised passwords (Q4),
-5. How do people report to create their master password (Q5),
-6. Whether people recall receiving notifications from their password managers urging them to change repeated, weak or compromised passwords (Q6).
-7. How long has the person used passwords managers (Q7).
-
-To do this, we plan to run a survey through Prolific (https://www.prolific.co/). To those subjects that claim to use one of the password managers we are interested in, we will ask to upload a picture of the dashboard provided by their password manager, masking those areas of the image that may contain private information. Responses are anonymous, and we are not asking for any private information to our subjects. Our study was approved by the IRB at the University of California, Berkeley.
-
-## Pre-registration
-The practice committing to a set of statistical tests to run prior to collecting data, or *pre-registering* the study, is becoming more commonplace given the reproducibility crisis in social science.  We pre-registered this study by publishing a SHA256 hash of this the draft of this document at is existed prior to the start of data collection.
-
-
 # Methodology
 ## Recruitment
-We recruited for our study using Prolific, which provides features similar to Mechanical Turk but is designed specifically for researchers and research participants.
+We recruited participants by advertising a $0.20 screening survey on Prolific, a task marketplace and payment intermediary similar to Amazon's Mechanical Turk but designed specifically for ``surveys and market research''[[cite: page title of prolific.co]].
 
-We advertised a two-question study on Prolific under the title ``Do You Use a Password Manager and, if so, Which One?''.
+> Do You Use a Password Manager and, if so, Which One?
+>
+> **A 1-minute survey with 3 multiple-choice questions.**
+>
+> We will ask (1) which password manager you use or if you don't use one, (2) a multiple-choice follow-up question, and (3) a final one-sentence yes/no question.
 
-> This is a two-question multiple-choice survey. (One multiple choice question has an “other” that may require 2-3 words.)
-> It should take under two minutes, though we may offer additional information for you may voluntarily read after that you can choose to spend more time reading.
-> It asks whether you use a password manager and, if so, for how long.
+We worded the advertisement so that prospective participants could read it in under ten seconds and be confident that we had scoped the survey to take under a minute.  We did not identify it as a screening survey so as not to create an opportunity for participants to try to identify which answers led to additional opportunities.
 
-We used an option provided by prolific to filter out participants who were not using the service from a desktop computer, and therefore would be less likely to be able to access their password manager's desktop/web interface.
+We used an option provided by prolific to display the advertisement only to participants using their browser's desktop mode, as such participants using a mobile device would be less likely to have access to their password manager's desktop/web interface.
 
 We [used | did not use] the option Prolific offers for "representative sampling."
 
-We set the expected completion time of 1 minute and offered a payment of  GBP 0.20.
-**NOTE: there is an inconsistency between the 2-minutes in our written description and the one minute in our study configuration in prolific.**
+We started our screening survey with two sentences to ensure that users of browser-based password managers knew they were, in fact, using a password manager.
 
-### Qualification 1
-We first asked participants:
+> A password manager is a program that saves your passwords and enters them for you.  If you allow your web browser to save your passwords, you are using your browser's password manager.
 
-> Which password manager are you using for your personal accounts? (if you use more than one, please report the one that manages the most accounts.)
+We first asked all participants in the screening survey which password manager they used for their personal accounts. (Appendix A, Q.WhichPwdManager)
 
-We first listed options for third-party password managers, sorted alphabetically: 1Password, Bitwarden (Premium Edition), Bitwarden (Free Edition), Dashlane, KeePassXC, Keeper Password Manager, LastPass, Norton Password Manager, Password Boss, RoboForm, and StickyPassword.
-We then listed browser password managers sorted alphabetically by software company: Apple, Google, Microsoft, Mozilla.
-We then asked about other browser or third-party password managers, with a text field for the respondent to fill in.
-Lastly, we offered the option to respond ``I'm not using a password manager".
+If a participant reported not using a password manager, we asked why (Appendix A, Q.WhyNay) and concluded the screening survey without asking a third question.
+
+If a participant reported using a password manager, we asked how long they had been using it. (Appendix A, Q.Duration)
+
+FIXME -- add who we excluded because they used a disqualified password manager
+
+Of the remaining password managers, two were over-represented in our pilot samples: Google Chrome and LastPass.  We down-sampled Google Chrome users by randomly excluding 14 of 15 from receiving the offer to participate in the follow-up study.  (FIXME -- do we do the same for LastPass?)
+
+-- Stuarts edit stops here --
 
 Our first qualification test was whether participants had responded with one of the listed third-party password managers or with Google Chrome, which also offers a dashboard from which we could collect password statistics.  
 In our pilots, we found that the password manager built into Google's Chrome browser was the most widely used.  To balance participation rates, we down-sampled participants using Chrome's password manager by randomly excluding 14 out of 15 from the first qualification test (using a random number generator).
 
-For those participants failed the first qualification test, including 14 of the 15 participants who used Chrome's password manager, we used the second of the two questions we had contracted for to ask why.
+For those participants who were using a password manager but who we did not select to participate in the full study, we asked how long they had been using that 
 
 *I had previously proposed that everyone except the no-password-manager group be asked Q.Generating. From Slack:*
 
@@ -114,6 +89,10 @@ We will observe and report:
 1. What reasons people report to maintain reused/weak/compromised passwords (Q4 and related questions),
 1. How do people report creating their master password, and whether they have taken precautions to not lose access to it (Q5 and related questions),
 1. The proportion of subjects who recall having received a notification to change their reused/weak passwords (Q6).
+
+## Pre-registration
+The practice committing to a set of statistical tests to run prior to collecting data, or *pre-registering* the study, is becoming more commonplace given the reproducibility crisis in social science.  We pre-registered this study by publishing a SHA256 hash of this the draft of this document at is existed prior to the start of data collection.
+
 
 
 
