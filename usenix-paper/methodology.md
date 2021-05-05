@@ -26,7 +26,13 @@ If a participant reported using a password manager, we asked how long they had b
 
 FIXME -- add who we excluded because they used a disqualified password manager
 
-Of the remaining password managers, two were over-represented in our pilot samples: Google Chrome and LastPass.  We down-sampled Google Chrome users by randomly excluding 14 of 15 from receiving the offer to participate in the follow-up study.  (FIXME -- do we do the same for LastPass?)
+Of the qualifying password managers, two were most represented in our pilot samples: Google Chrome and LastPass. Were we to include all users of Chrome's password manager, the great majority of participants would be using that password manager and only a tiny fraction of our participant budget would got of third-party password managers.  We thus down-sampled Google Chrome users by randomly excluding 14 of 15 from receiving the offer to participate in the follow-up study.  (FIXME -- do we do the same for LastPass?)
+
+The few seconds remaining of our participants' time during the screening study was insufficient to explain the privacy implications of the full study, so we instead made the following offer to those who qualified for our full study.
+
+> Do you want to earn a USD $0.25 bonus spending one more minute learning about a USD $5.00 follow-up study? (FIXME should this be 1-2 minutes?)
+
+
 
 -- Stuarts edit stops here --
 
