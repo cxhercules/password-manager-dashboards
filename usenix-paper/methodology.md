@@ -20,38 +20,23 @@ We started our screening survey with two sentences to ensure that users of brows
 
 We first asked all participants in the screening survey which password manager they used for their personal accounts. (Appendix A, Q.WhichPwdManager)
 
-If a participant reported not using a password manager, we asked why (Appendix A, Q.WhyNay) and concluded the screening survey without asking a third question.
+If a participant reported not using a password manager, we asked why (Appendix A, Q.WhyNay) and concluded the screening survey without asking a third question. We thanked the participants for successfully completing the survey without revealing that we were screening for a larger study.
 
 If a participant reported using a password manager, we asked how long they had been using it. (Appendix A, Q.Duration)
 
-FIXME -- add who we excluded because they used a disqualified password manager
+We only qualified participants for the screening study if they used a qualifying password manager for over two months. (FIXME -- add who we excluded because they used a disqualified password manager.)
 
 Of the qualifying password managers, two were most represented in our pilot samples: Google Chrome and LastPass. Were we to include all users of Chrome's password manager, the great majority of participants would be using that password manager and only a tiny fraction of our participant budget would got of third-party password managers.  We thus down-sampled Google Chrome users by randomly excluding 14 of 15 from receiving the offer to participate in the follow-up study.  (FIXME -- do we do the same for LastPass?)
 
-The few seconds remaining of our participants' time during the screening study was insufficient to explain the privacy implications of the full study, so we instead made the following offer to those who qualified for our full study.
+The few seconds remaining of the minute of participants' time we had contracted for third question of the screening study was insufficient to explain the privacy implications of the full study and get consent, so we instead asked the following question to those who qualified for the full study.
 
-> Do you want to earn a USD $0.25 bonus spending one more minute learning about a USD $5.00 follow-up study? (FIXME should this be 1-2 minutes?)
+> Do you want to earn a USD $0.40 bonus by spending up to two more minutes learning about a follow-up study that pays USD $5.00? (Appendix A, Q.FIXME) (FIXME - survey should be updated to match this question text once we all agree on it)
 
+We showed participants who answered yes the full consent form for our study. We disclosed that we would require participants to upload a screenshot of information from their password manager and included a sample screenshot taken from the password manager they had reported using.
 
 
 -- Stuarts edit stops here --
 
-Our first qualification test was whether participants had responded with one of the listed third-party password managers or with Google Chrome, which also offers a dashboard from which we could collect password statistics.  
-In our pilots, we found that the password manager built into Google's Chrome browser was the most widely used.  To balance participation rates, we down-sampled participants using Chrome's password manager by randomly excluding 14 out of 15 from the first qualification test (using a random number generator).
-
-For those participants who were using a password manager but who we did not select to participate in the full study, we asked how long they had been using that 
-
-*I had previously proposed that everyone except the no-password-manager group be asked Q.Generating. From Slack:*
-
-> Stuart Schechter Feb 10th at 2:02 PM
-> Question 2:
-> If a third party password manager or they use chrome and win the participant lottery: ask Q.Duration
-> Else if using a browser password manager (including chrome if they don’t win the qualification lottery): Q.Generating
-> Else: they use no password manager -> done [now Q.WhyNoPWManager --Stuart on March 3]
-
-We then thanked the participants who didn't meet our first qualification criteria for successfully participating in then study, without revealing that the the questions were intended to determine qualification for our full study.
-
-**Stuart recalls that we were asking them something. Are we wasting our second question? In qualtrics it looks like we're just ending after the first question.**
 
 ### Qualification 2
 For those who passed the first qualification test, we asked:
