@@ -1,12 +1,19 @@
 # Methodology
-## Recruitment
+
+Few password managers send telemetry data back to their developers because they are designed under the assumption that users will want a minimal attack surface and the utmost privacy for the keys to all their online data.  The unfortunate consequence of this is these security-critical user interfaces have gone mostly untested (and, if software developers have performed studies, they have gone unpublished.)
+
+For outside researchers like ourselves, the challenge in studying these products include identifying and recruiting users of these products, then overcoming inaccuracies in how users may self-report how they use them.  We suspected that if we asked users if they had weak, re-used, or compromised passwords, they might be afraid to admit that they did or might answer aspirationally, reporting numbers anticipating that they will replace vulnerable passwords even if they have not yet done so and may never get around to doing so. Or, they might not understand which numbers we were asking for and report them incorrectly.
+
+We realized we could overcome some of these limitations by asking participants to upload screenshots that contained no information identifying themselves, but did contain the statistics their password manager reported about their weak, re-used, and compromised passwords.
+
+## Recruitment & screening study
 We recruited participants by advertising a $0.20 screening survey on Prolific, a task marketplace and payment intermediary similar to Amazon's Mechanical Turk but designed specifically for ``surveys and market research''[[cite: page title of prolific.co]].
 
 > Do You Use a Password Manager and, if so, Which One?
 >
 > **A 1-minute survey with 3 multiple-choice questions.**
 >
-> We will ask (1) which password manager you use or if you don't use one, (2) a multiple-choice follow-up question, and (3) a final one-sentence yes/no question.
+> We will ask (1) which password manager you use or if you don't use one, (2) a multiple-choice follow-up question, and (3) a final one-sentence question.
 
 We worded the advertisement so that prospective participants could read it in under ten seconds and be confident that we had scoped the survey to take under a minute.  We did not identify it as a screening survey so as not to create an opportunity for participants to try to identify which answers led to additional opportunities.
 
@@ -28,11 +35,40 @@ We only qualified participants for the screening study if they used a qualifying
 
 Of the qualifying password managers, two were most represented in our pilot samples: Google Chrome and LastPass. Were we to include all users of Chrome's password manager, the great majority of participants would be using that password manager and only a tiny fraction of our participant budget would got of third-party password managers.  We thus down-sampled Google Chrome users by randomly excluding 14 of 15 from receiving the offer to participate in the follow-up study.  (FIXME -- do we do the same for LastPass?)
 
+To participants who used a password manager but didn't qualify for the full study, we used our third question to ask a question that would also be part of the full study:
+
+> When you are creating an account on a website or changing your password, are you more likely to:
+>  - Create a password myself and let my password manager save it
+>  - Allow my password manager to create a random password for me
+>  - Other (Please explain)
+
 The few seconds remaining of the minute of participants' time we had contracted for third question of the screening study was insufficient to explain the privacy implications of the full study and get consent, so we instead asked the following question to those who qualified for the full study.
 
-> Do you want to earn a USD $0.40 bonus by spending up to two more minutes learning about a follow-up study that pays USD $5.00? (Appendix A, Q.FIXME) (FIXME - survey should be updated to match this question text once we all agree on it)
+> Do you want to earn a USD \$0.40 bonus by spending up to two more minutes learning about a follow-up study that pays USD \$5.00? (Appendix A, Q.FIXME) (FIXME - survey should be updated to match this question text once we all agree on it)
 
-We showed participants who answered yes the full consent form for our study. We disclosed that we would require participants to upload a screenshot of information from their password manager and included a sample screenshot taken from the password manager they had reported using.
+Prolific gives researchers the ability to add bonuses to participants via the unique identifier attached to the survey, so we were able to to contract for the additional two minutes of time, and later for the full study, without redirecting participants away from our survey. Those who answered no completed the survey and returned to Prolific.
+To who answered yes, we shoed the full consent form for our study. We disclosed that we would require participants to upload a screenshot of information from their password manager and included a sample screenshot taken from the password manager they had reported using.  We required that participants be using a computer (not a mobile phone or tablet) because password managers' mobile apps often block screenshots. (Appendix A, Q.Bonus*)
+
+We offered participants the choice to start immediately or to ask to be contacted later.  We asked those who declined the study to tell us why (though they could decline to provide a reason). (Appendix A, FIXME)
+
+## The full study
+
+Before we could show the first question of the full study, we asked participants to click a link that informed Prolific that they had successfully completed the screening study before Prolific would time out their response.
+
+We then presented participants with detailed instructions specific to their password manager.  We described how to navigate to the screen that contained the statistics we wanted them to upload, with illustrations of these screens, and instructions on how to take and (if necessary) redact a screenshot.  The statistics we asked participants to capture were
+   1. the total number of password managed
+   2. the number of passwords classified as weak
+   3. the number of passwords classified as re-used, and
+   4. the number of password classified as compromised.
+
+[ACTION ITEM: Stuart propose rewording: "How often do you use the security dashboard?" to "How often have you used ..." and to use concrete terms (e.g. monthly) rather than subjective ones (frequently)]
+
+[ACTION ITEM: As Stuart looks through the methodology, it occurs to me that we currently treat as one feature (“the dashboard”) the presentation of statistics about passwords, any nudges that lead people to this feature, and workflows that help users replace weak/re-used/compromised passwords.  I believe it would be cleaner to differentiate these features and ask about them separately.]
+
+[ACTION ITEM: In the pilot we asked, "Why are you more likely to create a password for yourself than let your password manager create one for you?"  With so many individual responses to the pilot, can we distill the most common ones and turn this into a multiple choice question?]
+
+We then asked how often they use the dashboard, w
+
 
 
 -- Stuarts edit stops here --
