@@ -19,7 +19,7 @@ We worded the advertisement so that prospective participants could read it in un
 
 We used an option provided by prolific to display the advertisement only to participants using their browser's desktop mode, as such participants using a mobile device would be less likely to have access to their password manager's desktop/web interface.
 
-We [used | did not use] the option Prolific offers for "representative sampling."
+We used the option Prolific offers for "representative sampling." which allows us to survey their general population, but we did prescreen to ensure that the Prolific ID has not previously participated in our previous studies on the platform.
 
 We started our screening survey with two sentences to ensure that users of browser-based password managers knew they were, in fact, using a password manager.
 
