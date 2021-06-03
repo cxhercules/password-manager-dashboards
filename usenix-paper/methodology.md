@@ -19,7 +19,7 @@ We worded the advertisement so that prospective participants could read it in un
 
 We used an option provided by prolific to display the advertisement only to participants using their browser's desktop mode, as such participants using a mobile device would be less likely to have access to their password manager's desktop/web interface.
 
-We [used | did not use] the option Prolific offers for "representative sampling."
+We did not use the option Prolific offers for "representative sampling."  We prescreened prolific users who had previous taken our survey.
 
 We started our screening survey with two sentences to ensure that users of browser-based password managers knew they were, in fact, using a password manager.
 
@@ -70,7 +70,6 @@ We then presented participants with detailed instructions specific to their pass
 We then asked how often they use the dashboard, w
 
 
-
 -- Stuarts edit stops here --
 
 
@@ -107,7 +106,6 @@ The remaining participants qualified for our full study, but had only agreed to 
 The purpose of this study is determine whether people who password managers are benefiting from all their security features.
 
 
-
 ## Measurements
 We will observe and report:
 
@@ -119,7 +117,6 @@ We will observe and report:
 
 ## Pre-registration
 The practice committing to a set of statistical tests to run prior to collecting data, or *pre-registering* the study, is becoming more commonplace given the reproducibility crisis in social science.  We pre-registered this study by publishing a SHA256 hash of this the draft of this document at is existed prior to the start of data collection.
-
 
 
 
